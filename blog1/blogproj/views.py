@@ -17,7 +17,7 @@ posts = [
 def home_page(request):
 	context = 	{'posts': posts}
 	
-	return render(request, 'home.html', context)
+	return render(request, 'blog1/home.html', context)
 
 #def home_page(request):
 #	my_title="hello there.."
@@ -25,7 +25,7 @@ def home_page(request):
 	# 															in hello_world.html we use {} i.e. dictionary
 
 def aboutus(request):
-	return render(request,"about.html", {"title":"About"})
+	return render(request,"blog1/about.html", {"title":"About"})
 
 # def home_page(request):
 # 	return HttpResponse("<h1>hello world</h1>")

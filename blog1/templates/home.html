@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% for post in posts %}
+    <h1>{{ post.title }}</h1>
+    <p>by {{ post.author }} on {{ post.date_posted }}</p>
+  {% endfor %} 
+{% endblock content %}  
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  {% if title %}
+    <title>django blog-{{ title }}</title>
+  {% else %}
+    <title>django blog</title>
+  {% endif %}    
+ </head>
+ <body>
+{% for post in posts %}
+  <h1>{{ post.title }}</h1>
+  <p>by {{ post.author }} on {{ post.date_posted }}</p>
+{% endfor %} 
+ </body>
+ </html>  -->

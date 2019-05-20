@@ -24,5 +24,6 @@ urlpatterns = [
 	#path('blogproj/', include('blogproj.urls')),
 	path('register/', user_views.register, name='register'),
 	path('', include('blogproj.urls')),
+    path('', include('users.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
    

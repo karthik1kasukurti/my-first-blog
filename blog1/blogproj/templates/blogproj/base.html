@@ -5,11 +5,14 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="{% static 'blog1/main.css' %}">
+      
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blogproj/main.css' %}">
+   
 
     {% if title %}
         <title>Django Blog - {{ title }}</title>
@@ -22,34 +25,48 @@
            left: 0;
            bottom: 0;
            width: 100%;
-           background-color: #003300;
+           background-color: #24240f;
            color: white;
            text-align: center;
-      }
+           }
+          
     </style>
+    
 </head>
+
+
+
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav id="nav1" class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% static 'blog1/main.css' %}">django blog</a>
+      <a id="a1" class="navbar-brand" href="{% url 'blog-home' %}">django blog</a>
+      <p class="meta">The Blogger site to share your thoughts.</p>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="{% url 'blog-home' %}">Home</a></li>
-      
-      <li><a href="{% url 'blog-about' %}">about</a></li>
-    </ul>
+   
     <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'blog-home' %}">Home</a></li> 
+      <!--in href,we can also use href="/home"-->
+      <li><a href="{% url 'blog-about' %}">about</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="#">Login</a></li>
     </ul>
   </div>
 </nav>
+
 <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}"><!--this is a bootstrap alert tag-->
+                {{ message }} <!--they will display successful alert if it is validated-->     
+              </div>  
+            {% endfor %}  
+          {% endif %}
           {% block content %}{% endblock %}
+          
         </div>
         <div class="col-md-4">
           <div class="content-section">
@@ -68,7 +85,7 @@
 </main>
 <div class="footer">
   <p>Copyright © 2019  WebsiteName™. All rights reserved.</p>
-  <h6>Site Designed and developed by Karthik Kasukurti.</h6>
+  <h6 id="h6">Site Designed and developed by Karthik Kasukurti.</h6>
 </div>
 
   

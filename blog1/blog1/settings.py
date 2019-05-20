@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 INSTALLED_APPS = [
     'blogproj',
     'users',
-    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
